@@ -18,11 +18,13 @@ const User = db.define('user', {
             notEmpty: true
         }
     },
-    userName: {
-        type: DataTypes.STRING,        
+    email:{
+        type: DataTypes.STRING,
         allowNull: false,
+        unique: true,
         validate: {
-            notEmpty: true
+            notEmpty: true,
+            isEmail: true
         }
     },
     password: {
@@ -31,15 +33,8 @@ const User = db.define('user', {
         validate: {
             notEmpty: true
         }
-    },
-    image:{
-        type:DataTypes.STRING,
-        allowNull:true
-    },
-    url:{
-        type:DataTypes.STRING,
-        allowNull:true
-    },
+    }
+    
     
 
 }, {

@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import db from './config/Config.js'
 import TodoRouter from './routes/ToDoRouter.js';
+import UserRouter from './routes/UserRouter.js';
+import AuthRouter from './routes/AuthRouter.js';
 import session from 'express-session';
 
 import dotenv from 'dotenv';
@@ -36,7 +38,11 @@ app.use(cors({
 
 app.use(express.json())
 
+app.use('/user', UserRouter);
 app.use('/task', TodoRouter);
+app.use('/login', AuthRouter);
+app.use('/logout', AuthRouter);
+app.use('/islogin', AuthRouter);
 app.listen(process.env.APP_PORT, () =>{
     console.log(`Server is running on port ${process.env.APP_PORT}`)
 });

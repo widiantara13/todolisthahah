@@ -5,14 +5,16 @@ import {addTask,
         updateTask,
         deleteTask
 } from '../controllers/ToDoController.js';
+import { verifyLogin } from '../middleware/veryfyMiddle.js';
+
 
 const TodoRouter = express.Router();
 
-TodoRouter.post("/", addTask);
-TodoRouter.get("/:id", getTaskById);
-TodoRouter.get("/", getTasks);
-TodoRouter.put("/:id", updateTask);
-TodoRouter.delete("/:id", deleteTask);
+TodoRouter.post("/",verifyLogin, addTask);
+TodoRouter.get("/:id",verifyLogin, getTaskById);
+TodoRouter.get("/",verifyLogin, getTasks);
+TodoRouter.put("/:id",verifyLogin, updateTask);
+TodoRouter.delete("/:id",verifyLogin, deleteTask);
 
 
 
