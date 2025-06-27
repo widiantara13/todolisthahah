@@ -1,10 +1,20 @@
-import React from 'react'
+
 import { IoHome } from "react-icons/io5";
 import { MdAddTask } from "react-icons/md";
 import { FaTasks } from "react-icons/fa";
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { useDispatch} from 'react-redux';
+import { LogOut, reset } from '../feature/AuthSlice';
 
 function Sidebar() {
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const logout = () => {
+        dispatch(LogOut());
+        dispatch(reset());
+        navigate("/");
+    }
   return (
     <div>
         <aside className="menu">
@@ -32,7 +42,7 @@ function Sidebar() {
             </ul>
             <p className="menu-label">Setting</p>
             <ul className="menu-list">
-                <li className='button is-danger'>
+                <li className='button is-danger' onClick={logout}>
                     Log out
                 </li>
                 

@@ -18,14 +18,9 @@ const store = new sessionStore({
     db:db
 });
 
-app.use(session({
-    secret: process.env.SESS_SECRET,
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-        secure: 'auto'
-    }
-}));
+
+
+
 
 (
     async () => {
@@ -38,10 +33,19 @@ app.use(session({
         }
     }
 )();
+app.use(session({
+    secret: process.env.SESS_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    store: store,
+    cookie: {
+        secure: 'auto'
+    }
+}));
 
 app.use(cors({
-    origin: process.env.CLIENT,
-    credential: true
+    origin: "http://localhost:5173",
+    credentials: true
 }));
 
 app.use(express.json())

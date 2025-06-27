@@ -2,10 +2,10 @@ import React from 'react'
 
 function AddEdditTask() {
   return (
-    <div className="hero has-background-grey-light is-fullheight is-fullwidth">
+    <div className="hero  is-fullheight is-fullwidth">
         <div className="hero-body">
             <div className='container'>
-                <div className='columns is-centeredgit'>
+                <div className='columns is-centered'>
                     <div className='column is-4'>
                         <form className='box'>
 
