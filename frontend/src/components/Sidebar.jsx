@@ -34,7 +34,7 @@ function Sidebar() {
                     </NavLink></li>
                 
                 <li>
-                    <NavLink to={"/"}>
+                    <NavLink to={"/showtask"}>
                         {<FaTasks/>} Show Task
                     </NavLink>
                 </li>

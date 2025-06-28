@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { Provider} from 'react-redux';
 import { store } from './app/store.js';
 import "bulma/css/bulma.css"
+import 'react-day-picker/dist/style.css';
 import App from './App.jsx'
 import axios from 'axios';
 
